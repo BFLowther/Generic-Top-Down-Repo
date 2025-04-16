@@ -6,17 +6,9 @@ public class KillPlayer : MonoBehaviour
 {
     public GameObject gameManger;
     public GameManager gmScript;
-	private bool stopHittingMePlease = false;
-    private void OnTriggerEnter2D(Collider2D other)
-    {
-        if (other.gameObject.CompareTag("Player") && stopHittingMePlease == false)
-        {
-            gmScript.ManageHP(-1);
-			stopHittingMePlease = true;
-            Destroy(gameObject);
-			gmScript.SubMonsters();
-        }
-    }
+	private bool isPlayerDead = false;
+   
+   
     private void Start()
     {
         gameManger = GameObject.FindGameObjectWithTag("GameManager");
@@ -25,6 +17,17 @@ public class KillPlayer : MonoBehaviour
 
 	private void Update()
 	{
-		stopHittingMePlease = false;
+		isPlayerDead = false;
+	}
+
+	private void OnTriggerEnter2D(Collider2D other)
+	{
+		if (other.gameObject.CompareTag("Player") && isPlayerDead == false)
+		{
+			gmScript.ManageHP(-1);
+			isPlayerDead = true;
+			//Destroy(gameObject);
+			//gmScript.SubMonsters();
+		}
 	}
 }

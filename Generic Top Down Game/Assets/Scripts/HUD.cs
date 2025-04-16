@@ -17,7 +17,7 @@ public class Canvas : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        health.text = "Health: " + gameManager.GetHealth();
+        health.text = "Health: " + gameManager.GetHP();
         ammo.text = "Ammo: " + gameManager.getAmmo();
     }
 }

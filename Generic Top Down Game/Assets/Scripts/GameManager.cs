@@ -12,10 +12,8 @@ public class GameManager : MonoBehaviour
     private int monsters = 0;
 
     //player HP
-
     private int hp;
 
-	//ammo (eventually)
 	public int maxHP;
 	public int maxAmmo;
 
@@ -35,7 +33,7 @@ public class GameManager : MonoBehaviour
 		//Debug.Log(GetMonsters());
     }
 
-    public int GetHealth()
+    public int GetHP()
     {
         return hp;
     }
@@ -50,17 +48,12 @@ public class GameManager : MonoBehaviour
         hp += a;
     }
 
-    public void SetAmmo(int a)
-    {
-        ammo = a;
-    }
-
     public int GetMonsters()
     {
         return monsters;
     }
 
-    public void AddMonsters(int a)
+    public void ManageMonsters(int a)
     {
         monsters += a;
     }
@@ -70,13 +63,19 @@ public class GameManager : MonoBehaviour
         monsters --;
 	}
 
-    public void ManageAmmo(int a)
+	public int getAmmo()
+	{
+		return ammo;
+	}
+
+	public void SetAmmo(int a)
+	{
+		ammo = a;
+	}
+
+	public void ManageAmmo(int a)
     {
         ammo += a;
     }
-
-    public int getAmmo()
-    {
-        return ammo;
-    }
+    
 }

@@ -17,8 +17,9 @@ public class EnemyHealth : MonoBehaviour
     {
         if (health <= 0)
         {
-            Destroy(gameObject);
-            gm.SubMonsters();
+            gm.ManageMonsters(5);
+			Destroy(gameObject);
+            
         }
 
     }
